@@ -21,28 +21,13 @@ This project demonstrates the use of PySpark for data analysis on a home sales d
 - **Performance Optimization**: Cache data to speed up query execution and compare runtimes.
 - **Data Partitioning**: Organize data using Parquet format for efficient storage and retrieval.
 
-## Getting Started
+# Read in the AWS S3 bucket into a DataFrame.
+from pyspark import SparkFiles
 
-### Prerequisites
-
-- Python
-- Apache Spark
-- PySpark
-
-### Installation
-
-1. Install `findspark`:
-    ```bash
-    pip install findspark
-    ```
-
-2. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/homesales-analysis.git
-    cd homesales-analysis
-    ```
-
-3. Run the Jupyter notebook or Python script to execute the analysis steps.
+url = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.2/22-big-data/home_sales_revised.csv"
+spark.sparkContext.addFile(url)
+df = spark.read.csv(SparkFiles.get("home_sales_revised.csv"), sep=",", header=True)
+df.show()
 
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=150&section=footer" />
