@@ -22,12 +22,13 @@ This project demonstrates the use of PySpark for data analysis on a home sales d
 - **Data Partitioning**: Organize data using Parquet format for efficient storage and retrieval.
 
 # Read in the AWS S3 bucket into a DataFrame.
+'
 from pyspark import SparkFiles
 
 url = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.2/22-big-data/home_sales_revised.csv"
 spark.sparkContext.addFile(url)
 df = spark.read.csv(SparkFiles.get("home_sales_revised.csv"), sep=",", header=True)
 df.show()
-
+'
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=150&section=footer" />
